@@ -1,0 +1,31 @@
+_repo: The-Pony-Rider-Boys-in-New-Mexico--Or-The-End-of-the-Silver-Trail_4991
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Patchin, Frank Gee
+    alias: Patchin, Frank Glines
+    birthdate: 1861
+    deathdate: 1925
+    gutenberg_agent_id: '1623'
+    url: http://www.gutenberg.org/2009/agents/1623
+description: What was that?" "Only one of the boys in the seat behind us, snoring."
+  "Sure they're asleep?" "Yes, but what if they're not? They are only kids. They wouldn't
+  understand." "Don't you be too sure about that. I've heard about those kids. Heard
+  about 'em over in Nevada. There's four of them. They call themselves the Pony Rider
+  Boys; and they're no tenderfeet, if all I hear is true. They have done some pretty
+  lively stunts."
+gutenberg_issued: '2004-01-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '4991'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'New Mexico -- Juvenile fiction'
+- !lcc 'PZ'
+- !lcsh 'Horsemanship -- Juvenile fiction'
+- GITenberg
+title: The Pony Rider Boys in New Mexico; Or, The End of the Silver Trail
+url: http://www.gutenberg.org/ebooks/4991
