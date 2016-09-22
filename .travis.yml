@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: ZBbkXFquncaz44vcPW/Egdg0buVKrS3K/jiNZUpdAVmN3rcqx1xZL44fHw4avnBvLP9uyEHKAXZUtgOOyrJEnayUJxIqVFyi7McDFMEcrVjGjYN4WC0pVwrn7S+XJ8W1swWEqlhZuCpRu4R2TwSrtWSyhPIrSQh68dR5h1/y2j5UQc3D0qtewEp4q6a13rrjPyd17xOUgfuLKEkCjD9rnB2QuPSKKeT4bWhxcZCIP18rysGWFIJzE2AWqW6pW/eiOMQvVjAJHUT6Aiv6r7HPN50dak4AhUpKwG10c1TLPGhkiXGhOjoXBF9vuRMJpvPD5joyG35nDRp6lzQurKp0YDZSkmHIaYRJqHTpPvqavsZQXanaKz5OB5qv5jUvnAX8WRIUnBdS8I1YE3TB6y3wVTWcZXsRVOZ3kLIh0dRRhU/ojBknbplRWOEPLrf2QIJkVFeHR7Tbiu3OgD+NhDlQZcu3Cwtbt+jV8XbCfJ/Ic0MVL5lCr6EsqxmO+j484jVr+LTIvxIVCUHheyG8ZzTesALAQEla2Z431NoUMrmZA7J3tbRyxOVNmO2baGouZ5p9h7lXadUr8jNAL5DrjBqVZHGoxBsZXPoSKE8hpTecQtZH4g8r4Rkds8sBMY03F7qNvCTx0Ym5qOQjpDh0XfK7OqlsUWLwRoSeK0/vPqk/2TU=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/The-Pony-Rider-Boys-in-New-Mexico--Or-The-End-of-the-Silver-Trail_4991
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
