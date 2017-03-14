@@ -1,5 +1,8 @@
 _repo: The-Pony-Rider-Boys-in-New-Mexico--Or-The-End-of-the-Silver-Trail_4991
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Patchin, Frank Gee
@@ -14,6 +17,8 @@ description: What was that?" "Only one of the boys in the seat behind us, snorin
   about 'em over in Nevada. There's four of them. They call themselves the Pony Rider
   Boys; and they're no tenderfeet, if all I hear is true. They have done some pretty
   lively stunts."
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/4991#The-Pony-Rider-Boys-in-New-Mexico--Or-The-End-of-the-Silver-Trail
 gutenberg_issued: '2004-01-01'
 gutenberg_type: Text
 identifiers:
